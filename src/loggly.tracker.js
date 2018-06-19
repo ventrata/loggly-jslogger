@@ -1,5 +1,5 @@
 (function (window, document) {
-    var LOGGLY_INPUT_PREFIX = 'http' + (('https:' === document.location.protocol ? 's' : '')) + '://',
+    var LOGGLY_INPUT_PREFIX = 'https://',
         LOGGLY_COLLECTOR_DOMAIN = 'logs-01.loggly.com',
         LOGGLY_SESSION_KEY = 'logglytrackingsession',
         LOGGLY_SESSION_KEY_LENGTH = LOGGLY_SESSION_KEY.length + 1,
@@ -43,7 +43,7 @@
             var _onerror = window.onerror;
             //send console error messages to Loggly
             window.onerror = function (msg, url, line, col, err){
-                tracker.push({ 
+                tracker.push({
                     category: 'BrowserJsException',
                     exception: {
                         message: msg,
